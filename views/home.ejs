@@ -62,7 +62,7 @@
       </div>
     </div>
 
-    <% data.forEach(post => { %> 
+    <% data.slice(0, 5).forEach(post => { %> 
         <div class="post">
             <a href="http://localhost:3000/posts/<%= post.id %>"><i style="font-size:24px" class="fa">&#xf142;</i></a>
 
@@ -87,6 +87,7 @@
             <footer class="post-footer">
               <div class="post-city"><%= post.city %></div>
               <div class="post-price"><%= post.price + " lei" %></div>
+              <div style="display: none;" class="post-id"><%= post.id %></div>
             </footer>
         </div>
     <% }); %>

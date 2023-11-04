@@ -32,7 +32,7 @@ app.use(cors());
   
 app.use(express.static(staticPath));
 
-app.use('/', homeRouter);
+app.use('/', homeRouter.router);
 app.use('/posts', postRouter);
 
 app.set('view engine', 'ejs');

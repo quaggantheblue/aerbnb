@@ -25,8 +25,15 @@ router.post('/new-post', middle, ( req, res ) => {
   }
   const id = genRand().toString();
   payload.id = id;
-  posts.push(payload);
+  posts.unshift(payload);
   res.redirect("http://localhost:3000/");
+});
+
+router.delete('/:id', ( req, res ) => {
+  let index = posts.findIndex((post) => {
+    return post.id == req.params.id
+  });
+  posts.splice(index, 1);
 });
 
 router.get('/', ( req, res ) => {
@@ -36,7 +43,6 @@ router.get('/', ( req, res ) => {
 router.get('/:category', ( req, res ) => {
   let postsInCategory = [];
   posts.forEach( (post) => {
-    console.log(post.category);
     if (post.category.toLowerCase() === req.params.category) {
       postsInCategory.push(post);
     } else {
@@ -46,4 +52,5 @@ router.get('/:category', ( req, res ) => {
   res.render('../views/home', {data: postsInCategory})
 });
 
-module.exports = router;
+module.exports.router = router;
+module.exports.posts = posts;
