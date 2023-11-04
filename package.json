@@ -1,0 +1,17 @@
+{
+  "name": "m8---express---project",
+  "version": "1.0.0",
+  "description": "proiect generatia tech modulul 8 express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dragos penciu",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}

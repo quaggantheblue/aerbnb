@@ -1,0 +1,147 @@
+:root {
+  --red: #ff5a60;
+  --gray: rgb(233, 233, 233);
+  --dark-gray: rgb(160, 160, 160);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 1.25rem;
+  border: 1px solid #888;
+  width: 60%;
+  min-width: 350px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  margin-right: -0.5rem;
+  margin-top: -1.1rem;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#new-post-form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.number-input,
+#description-input,
+.text-input {
+  margin-bottom: 1rem;
+  text-wrap: wrap;
+  border: 1px solid var(--dark-gray);
+  border-radius: 5px;
+}
+
+.number-input {
+  margin-bottom: 1rem;
+}
+
+.number-input:focus,
+.text-input:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+#category-container {
+  margin-bottom: 1rem;
+}
+
+.category-label {
+  border: 1px solid var(--red);
+  border-radius: 5px;
+  padding: 0rem 1rem;
+  cursor: pointer;
+  color: var(--red);
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .category-label {
+  background-color: var(--red);
+  color: white;
+}
+
+.textarea-container {
+  width: 100%;
+  height: 7.8rem;
+}
+
+#description-input {
+  width: 100%;
+  resize: none;
+}
+
+.submit {
+  width: 40%;
+  height: 2rem;
+  width: 6rem;
+  background-color: var(--red);
+  border: solid 2px var(--red);
+  color: white;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: background-color 0.125s, color 0.125s;
+}
+
+.submit:hover {
+  cursor: pointer;
+  background-color: white;
+  color: var(--red);
+}
+
+#counter {
+  position: absolute;
+  top: 16.4rem;
+  right: 2rem;
+  color: var(--red);
+}

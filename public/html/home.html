@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/posts.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <title>Inchirieri</title>
+</head>
+<body>
+  <div class="container">
+
+    <nav id="navbar">
+
+      <div id="nav-container">
+
+        <a href="/" class="home-link">
+          <img id="logo" src="../img/aerbnb-logo.png" alt="logo">
+        </a>
+
+        <button id="new-post-button">
+          + New Post
+        </button>
+        
+      </div>
+
+    </nav>
+
+    <div id="form-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Creeaza o postare noua</h2>
+
+        <form id="new-post-form" action="/new-post/" method="post">
+          
+          <div id="category-container">
+            <input id="casa" value="casa" type="radio" name="category" checked="checked">
+            <label for="casa" class="category-label">Casa</label>
+            <input id="apartament" value="apartament" type="radio" name="category">
+            <label for="apartament" class="category-label">Apartament</label>
+          </div>
+
+          <input required type="text" placeholder="Nume utilizator" maxlength="16" name="username" class="text-input">
+          <input required type="text" placeholder="Titlu" name="title" maxlength="24" class="text-input">
+
+          <div class="textarea-container">
+            <textarea required onkeyup="textCounter(this, 'counter', 200)" name="description" placeholder="Descrierea postarii" id="description-input" cols="30" rows="5" maxlength="200" class="text-input"></textarea>
+            <p id="counter"></p>
+          </div>
+
+          <input required type="text" placeholder="Localitate" maxlength="30" name="city" class="text-input">
+          <input required type="number" onchange="constrainNumberInput" placeholder="Pret pe noapte" step="1" name="price" class="number-input" id="price-input">
+
+          <input type="submit" value="Posteaza" class="submit">
+        </form>
+      </div>
+    </div>  
+
+    <div class="post">
+
+      <a href="#">
+        <header class="post-header">
+          <h1 class="post-title">
+            WWWWWWWWWWWWWWWWWWWWWWWWWW
+          </h1>
+          <span class="post-author">
+            @quaggany
+          </span>
+        </header>
+  
+        <div class="post-content">
+          <div class="post-category-container">
+            <span class="post-category">
+              Apartament
+            </span> 
+          </div>
+          <textarea disabled oninput="autoGrow(this)" class="post-description salut">mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</textarea>
+        </div>
+  
+        <footer class="post-footer">
+          <div class="post-city">Brasov</div>
+          <div class="post-price">250 lei</div>
+        </footer>
+      </a>
+    </div>
+
+  <script src="../js/home.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+#navbar {
+  background-color: white;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid rgb(233, 233, 233);
+  height: 5rem;
+  width: 100%;
+}
+
+#nav-container {
+  height: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 2.5rem;
+}
+
+#logo {
+  height: 1.1rem;
+}
+
+#new-post-button {
+  margin-right: 2.5rem;
+  height: 2rem;
+  width: 6rem;
+  background-color: var(--red);
+  border: solid 2px var(--red);
+  color: white;
+  border-radius: 10px;
+  font-weight: 500;
+  transition: background-color 0.125s, color 0.125s;
+}
+
+#new-post-button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: var(--red);
+}
