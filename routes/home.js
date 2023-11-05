@@ -42,7 +42,7 @@ router.post('/edit-post', middle, async ( req, res ) => {
     return res.status(400).send("Failed");
   }
   await Post.updateOne({_id: payload.id}, payload);
-  res.redirect("http://localhost:3000/");
+  res.redirect("/");
 });
 
 router.get('/view-all', async ( req, res ) => {
