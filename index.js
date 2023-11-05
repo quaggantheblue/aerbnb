@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
@@ -41,7 +42,7 @@ app.set('view engine', 'ejs');
 
 app.listen(PORT, async () => {
   console.log(`Listening on port ${PORT}.....`)
-  await mongoose.connect('mongodb+srv://quaggantheblue:92gqxDVudiEQUN83@gentechproiect1.zffi3xk.mongodb.net/')
+  await mongoose.connect(process.env.MONGODB_URI)
    .then(() => {
      console.log('Connected to MongoDB');
    })
