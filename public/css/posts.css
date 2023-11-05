@@ -1,19 +1,5 @@
-
-#posts {
-  display: flex;
-  position: fixed;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 0rem;
-  bottom: 1.2rem;
-  left: 1rem;
-  right: 1rem;
-  top: 0rem;
-  overflow: scroll;
-  z-index: 1;
-}
-
 .post {
+  flex-shrink: 0;
   position: relative;
   padding-left: 1.8rem;
   display: flex;
@@ -127,4 +113,22 @@ a {
 .post-date {
   margin-right: 1.8rem;
   color: var(--dark-gray);
+}
+
+.view-all {
+  color: var(--dark-gray);
+  margin-top: .8rem;
+}
+
+.view-all:hover {
+  text-decoration: underline;
+}
+
+.posts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding-bottom: 5rem;
+  margin-top: 5rem;
 }

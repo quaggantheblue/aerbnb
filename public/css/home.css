@@ -20,7 +20,7 @@
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   left: 0;
   top: 0;
   width: 100%;
@@ -151,6 +151,17 @@ input[type="radio"]:checked + .category-label {
 }
 
 .home-page-link {
-  text-decoration: underline;
   color: var(--red);
+}
+
+.home-page-link:hover {
+  text-decoration: underline;
+}
+
+.menu {
+  color: var(--dark-gray);
+}
+
+.menu:hover {
+  color: black;
 }

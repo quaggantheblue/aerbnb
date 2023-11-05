@@ -73,7 +73,8 @@
       </div>
     </div>
 
-    <div class="post edit">
+    <div class="posts">
+      <div class="post edit">
         <header class="post-header">
           <h1 class="post-title">
             <%= data.title %> 
@@ -95,15 +96,15 @@
         <footer class="post-footer">
           <div class="post-city"><%= data.city %></div>
           <div class="post-price"><%= data.price + " lei" %></div>
-          <div style="display: none;" class="post-id"><%= data.id %></div>
         </footer>
         <div class="info-container">
           <div class="buttons-container">
-            <button onclick="sendDeleteRequest()" id="post-delete">X Delete</button>
+            <button onclick="sendDeleteRequest('<%= data._id %>')" id="post-delete">X Delete</button>
             <button id="post-edit"><i class="fa-solid fa-pen"></i> Edit</buton>
           </div>
-          <div class="post-date"><%= data.date %></div>
+          <div class="post-date"><%= data.createdAt.toUTCString().split(' ').slice(1).slice(0, -2).join(' ')  %></div>
         </div>
+      </div>
     </div>
 
   <script src="/js/post.js" defer></script>

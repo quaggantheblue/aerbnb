@@ -1,14 +1,11 @@
 const path = require('path');
 const express = require('express');
-const homeRouter = require('./home.js');
+const Post = require('../models/post.js');
 const router = express.Router();
 
-router.get('/:id', ( req, res ) => {
-  homeRouter.posts.forEach(post => {
-    if (post.id == req.params.id) {
-      res.render('../views/post', {data: post});
-    }
-  })
+router.get('/:id', async ( req, res ) => {
+  const post = await Post.findById(req.params.id);
+  res.render('../views/post.ejs', {data: post});
 })
 
 module.exports = router;

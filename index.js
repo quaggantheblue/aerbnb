@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 
+const mongoose = require('mongoose');
+
 /*
 TEMA: rezervari case de vacanta, apartamente
 inspiratie: airbnb
@@ -32,11 +34,18 @@ app.use(cors());
   
 app.use(express.static(staticPath));
 
-app.use('/', homeRouter.router);
+app.use('/', homeRouter);
 app.use('/posts', postRouter);
 
 app.set('view engine', 'ejs');
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Listening on port ${PORT}.....`)
+  await mongoose.connect('mongodb+srv://quaggantheblue:92gqxDVudiEQUN83@gentechproiect1.zffi3xk.mongodb.net/')
+   .then(() => {
+     console.log('Connected to MongoDB');
+   })
+   .catch((error) => {
+     console.error('Failed to connect to MongoDB:', error);
+   });
 });

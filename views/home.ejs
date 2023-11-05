@@ -74,9 +74,10 @@
       </div>
     </div>
 
-    <% data.slice(0, 5).forEach(post => { %> 
+    <div class="posts">
+      <% data.forEach(post => { %> 
         <div class="post">
-            <a href="http://localhost:3000/posts/<%= post.id %>"><i style="font-size:24px" class="fa">&#xf142;</i></a>
+            <a href="http://localhost:3000/posts/<%= post.id %>"><i style="font-size:24px" class="fa menu">&#xf142;</i></a>
 
             <header class="post-header">
               <h1 class="post-title">
@@ -98,10 +99,13 @@
             <footer class="post-footer">
               <div class="post-city"><%= post.city %></div>
               <div class="post-price"><%= post.price + " lei" %></div>
-              <div style="display: none;" class="post-id"><%= post.id %></div>
             </footer>
         </div>
     <% }); %>
+    <% if(data.length >= 3) { %>
+      <a href="/view-all" class="view-all">View all...</a>
+    <% }; %>
+    </div>
 
     <% if(data.length == 0) { %>
       <h1 class="not-found"><%= "Ne pare rau, nu a fost gasita nici o postare..." %></h1>
