@@ -4,14 +4,20 @@ const router = express.Router();
 
 let posts = [];
 
-const genRand = () => { 
+function genRand() { 
   return Math.floor(Math.random()*900000+100000);
+}
+
+function findPostIndexById(id) {
+  return index = posts.findIndex((post) => {
+    return post.id == id;
+  });
 }
 
 const middle = express.urlencoded({
   extended: false,
   limit: 10000,
-  parameterLimit: 6
+  parameterLimit: 8
 })
 
 router.get('/new-post', ( req, res ) => {
@@ -25,16 +31,23 @@ router.post('/new-post', middle, ( req, res ) => {
   }
   const id = genRand().toString();
   payload.id = id;
-  payload.date = new Date();
+  payload.date = new Date().toUTCString().split(' ').slice(1).slice(0, -2).join(' ');
   posts.unshift(payload);
   res.redirect("http://localhost:3000/");
 });
 
+router.post('/edit-post', middle, ( req, res ) => {
+  const payload = req.body;
+  if (!payload) {
+    return res.status(400).send("Failed");
+  }
+  posts[findPostIndexById(payload.id)] = payload;
+  res.redirect("http://localhost:3000/");
+});
+
 router.delete('/:id', ( req, res ) => {
-  let index = posts.findIndex((post) => {
-    return post.id == req.params.id
-  });
-  posts.splice(index, 1);
+  posts.splice(findPostIndexById(req.params.id), 1);
+  res.end();
 });
 
 router.get('/', ( req, res ) => {

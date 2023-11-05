@@ -37,3 +37,9 @@
   background-color: white;
   color: var(--red);
 }
+
+#links-container {
+  width: 20rem;
+  display: flex;
+  justify-content: space-between;
+}

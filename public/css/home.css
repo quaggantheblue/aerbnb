@@ -96,7 +96,7 @@ input[type=number] {
 
 .category-label {
   border: 1px solid var(--red);
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 0rem 1rem;
   cursor: pointer;
   color: var(--red);
@@ -143,5 +143,14 @@ input[type="radio"]:checked + .category-label {
   position: absolute;
   top: 16.4rem;
   right: 2rem;
+  color: var(--red);
+}
+
+.not-found {
+  margin-top: 2rem;
+}
+
+.home-page-link {
+  text-decoration: underline;
   color: var(--red);
 }
