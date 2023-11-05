@@ -18,6 +18,11 @@ router.get('/new-post', ( req, res ) => {
   res.send('salut');
 });
 
+router.delete('/:id', async ( req, res ) => {
+  await Post.findByIdAndDelete(req.params.id);  
+  res.redirect('/');
+});
+
 router.post('/new-post', middle, async ( req, res ) => {
   const payload = req.body;
   if (!payload) {
@@ -46,11 +51,6 @@ router.get('/view-all', async ( req, res ) => {
   });
   res.render('../views/view-all', {data: posts});
 })
-
-router.delete('/:id', async ( req, res ) => {
-  await Post.findByIdAndDelete(req.params.id);  
-  res.redirect('/');
-});
 
 router.get('/', async ( req, res ) => {
   const posts = await Post.find().sort({
