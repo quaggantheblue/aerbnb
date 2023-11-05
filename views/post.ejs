@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/4d7e654d9f.js' crossorigin='anonymous'></script>
   <title>Inchirieri</title>
 </head>
 <body>
@@ -26,34 +27,69 @@
 
     </nav>
 
-      <div class="post edit">
-          <header class="post-header">
-            <h1 class="post-title">
-              <%= data.title %> 
-            </h1>
-            <span class="post-author">
-              <%= "@" + data.username %>
-            </span>
-          </header>
-    
-          <div class="post-content">
-            <div class="post-category-container">
-              <span class="post-category">
-                <%= data.category %>
-              </span> 
-            </div>
-            <textarea disabled oninput="autoGrow(this)" class="post-description"><%= data.description %></textarea>
+    <div id="form-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Creeaza o postare noua</h2>
+
+        <form id="new-post-form" action="/edit-post/" method="post">
+          
+          <div id="category-container">
+            <input id="casa" value="Casa" type="radio" name="category" checked="checked">
+            <label for="casa" class="category-label">Casa</label>
+
+            <input id="apartament" value="Apartament" type="radio" name="category">
+            <label for="apartament" class="category-label">Apartament</label>
           </div>
-    
-          <footer class="post-footer">
-            <div class="post-city"><%= data.city %></div>
-            <div class="post-price"><%= data.price + " lei" %></div>
-            <div style="display: none;" class="post-id"><%= data.id %></div>
-          </footer>
-          <div>
-            <button onclick="sendDeleteRequest()" class="post-delete">X Delete</button>
+
+          <input required type="text" placeholder="Nume utilizator" maxlength="16" name="username" class="text-input">
+          <input required type="text" placeholder="Titlu" name="title" maxlength="24" class="text-input">
+
+          <div class="textarea-container">
+            <textarea required onkeyup="textCounter(this, 'counter', 200)" name="description" placeholder="Descrierea postarii" id="description-input" cols="30" rows="5" maxlength="200" class="text-input"></textarea>
+            <p id="counter"></p>
           </div>
+
+          <input required type="text" placeholder="Localitate" maxlength="30" name="city" class="text-input">
+          <input required type="number" onchange="constrainNumberInput" placeholder="Pret pe noapte" step="1" name="price" class="number-input" id="price-input">
+
+          <input type="submit" value="Posteaza" class="submit">
+        </form>
       </div>
+    </div>
+
+    <div class="post edit">
+        <header class="post-header">
+          <h1 class="post-title">
+            <%= data.title %> 
+          </h1>
+          <span class="post-author">
+            <%= "@" + data.username %>
+          </span>
+        </header>
+    
+        <div class="post-content">
+          <div class="post-category-container">
+            <span class="post-category">
+              <%= data.category %>
+            </span> 
+          </div>
+          <textarea disabled oninput="autoGrow(this)" class="post-description"><%= data.description %></textarea>
+        </div>
+    
+        <footer class="post-footer">
+          <div class="post-city"><%= data.city %></div>
+          <div class="post-price"><%= data.price + " lei" %></div>
+          <div style="display: none;" class="post-id"><%= data.id %></div>
+        </footer>
+        <div class="info-container">
+          <div class="buttons-container">
+            <button onclick="sendDeleteRequest()" id="post-delete">X Delete</button>
+            <button id="post-edit"><i class="fa-solid fa-pen"></i> Edit</buton>
+          </div>
+          <div class="post-date"><%= data.date.toUTCString().split(' ').slice(1).slice(0, -2).join(' ') %></div>
+        </div>
+    </div>
 
   <script src="/js/post.js" defer></script>
 </body>

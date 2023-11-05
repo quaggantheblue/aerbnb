@@ -25,6 +25,7 @@ router.post('/new-post', middle, ( req, res ) => {
   }
   const id = genRand().toString();
   payload.id = id;
+  payload.date = new Date();
   posts.unshift(payload);
   res.redirect("http://localhost:3000/");
 });
